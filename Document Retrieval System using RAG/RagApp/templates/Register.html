@@ -1,0 +1,118 @@
+{% load static %}
+<html>
+<head>
+<title>Document Retrieval System using RAG</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter Userame");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter Password");
+	formObj.t2.focus();
+	return false;
+	}
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter Contact No");
+	formObj.t3.focus();
+	return false;
+	}
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter Contact No");
+	formObj.t3.focus();
+	return false;
+	}
+	if(isNaN(formObj.t3.value)){
+		alert("Contact No must be numeric");
+		formObj.t3.focus();
+		return false;
+	}
+	if(formObj.t4.value.length==0)
+	{
+	alert("Please Enter Email Id");
+	formObj.t4.focus();
+	return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@([a-z]+\.)+(com)+$/;
+    if (!filter.test(formObj.t4.value)) {
+		window.alert('Please enter valid email address');
+		formObj.t4.focus();
+		return false;
+	}
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter Address");
+	formObj.t5.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+	
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body onload="displayImg()">
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Document Retrieval System using RAG</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+     <ul>
+      <li><a href="{% url 'index' %}"><font size="3" color="black">Home</a></li>
+       <li><a href="{% url 'UserLogin' %}"><font size="3" color="black">User Login</a></li>
+	   <li><a href="{% url 'Contactus' %}"><font size="3" color="black">Contact us</a></li>
+	   <li><a href="{% url 'Aboutus' %}"><font size="3" color="black">About us</a></li>
+      <li><a href="{% url 'Register' %}"><font size="3" color="black">New User Signup Here</a></li>
+	</ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1010" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'RegisterAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+  <font size="5" align="left">New User Signup Screen</font><br/>
+   
+	<font size="3" color="red"><center>{{ data|safe }}</center></font><br/>
+						
+						<table align="center" width="1%" >
+			 <tr><td><font size="3" color="black">Username</td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="25"></td></tr>
+         
+		  <tr><td><font size="3" color="black">Password</td>
+			 <td><input type="password" name="t2" style="font-family: Comic Sans MS" size="25"></td></tr>
+
+			<tr><td><font size="3" color="black">Contact&nbsp;No</td>
+			<td><input name="t3" type="Text" size="15"></td></td></tr>
+
+		    
+		   <tr><td><font size="3" color="black">Email&nbsp;Id</td><td><input type="text" name="t4" style="font-family: Comic Sans MS" size="20"/></td></tr>
+
+          <tr><td><font size="3" color="black">Address</td><td><input name="t5" type="Text" size="70"></td></td></tr>
+
+		  
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

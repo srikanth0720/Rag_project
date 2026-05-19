@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+<head>
+<title>Document Retrieval System using RAG</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter Text to Generate");
+	formObj.t1.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+	
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body onload="displayImg()">
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Document Retrieval System using RAG</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+     <ul>
+      <li><a href="{% url 'UploadDocument' %}"><font size="3" color="black">Upload Document to Cloud</a></li>
+       <li><a href="{% url 'Retrieval' %}"><font size="3" color="black">RAG Document Retrieval</a></li>
+	    <li><a href="{% url 'Generation' %}"><font size="3" color="black">RAG Text Generation</a></li>
+	     <li><a href="{% url 'index' %}"><font size="3" color="black">Logout</a></li>      
+	</ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1010" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'GenerationAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <font size="5" align="left">Document Generation Screen</font><br/>
+   
+	<font size="" color="red"><center>{{ data|safe }}</center></font><br/>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size="3" color="black">Generate&nbsp;Text&nbsp;Document</td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="80"></td></tr>
+         
+		  	<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

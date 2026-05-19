@@ -1,0 +1,48 @@
+{% load static %}
+<html>
+<head>
+<title>Document Retrieval System using RAG</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body onload="displayImg()">
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1 align="center"><span>Document Retrieval System using RAG</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+         
+           <ul>
+      <li><a href="{% url 'index' %}"><font size="3" color="black">Home</a></li>
+       <li><a href="{% url 'UserLogin' %}"><font size="3" color="black">User Login</a></li>
+	   <li><a href="{% url 'Contactus' %}"><font size="3" color="black">Contact us</a></li>
+	   <li><a href="{% url 'Aboutus' %}"><font size="3" color="black">About us</a></li>
+      <li><a href="{% url 'Register' %}"><font size="3" color="black">New User Signup Here</a></li>
+	</ul>
+         
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" name="canvas" width="1010" height="286" alt="" /></div>
+		       
+    <p align="justify"><font size="3" style="font-family: Comic Sans MS" color="black">
+		Our motto:
+		<br/>
+		 <p align="justify"><font size="3" style="font-family: Comic Sans MS" color="black">We are a team of innovators passionate about bridging the gap between knowledge retrieval and intelligent generation. Our RAG system project is designed to empower users with accurate, context-aware, and efficient information access, combining the strengths of retrieval-based methods with the creativity of generative AI.
+
+Our mission is to make information not only accessible but also actionable, ensuring that every query leads to meaningful insights. We believe in building systems that are transparent, reliable, and scalable, serving both academic and real-world problem-solving needs
+</p>
+
+
+<br/><br/><br/><br/><br/>
+</body>
+</html>

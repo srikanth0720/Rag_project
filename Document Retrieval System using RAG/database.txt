@@ -1,0 +1,15 @@
+create database rag;
+use rag;
+
+create table register(username varchar(50) primary key,
+password varchar(50),
+contact_no varchar(20),
+email varchar(70), 
+address varchar(80));
+
+create table documents(username varchar(50),
+document_name varchar(300),
+upload_date varchar(30));
+
+
+
